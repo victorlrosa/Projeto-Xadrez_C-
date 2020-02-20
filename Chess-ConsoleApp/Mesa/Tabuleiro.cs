@@ -16,5 +16,10 @@ namespace Chess_ConsoleApp.Mesa
             Colunas = colunas;
             Pecas = new Peca[Linhas, Colunas];
         }
+
+        public Peca Peca(int linha,int coluna)
+        {
+            return Pecas[linha, coluna];
+        }
     }
 }
