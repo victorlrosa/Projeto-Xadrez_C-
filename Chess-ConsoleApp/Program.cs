@@ -13,28 +13,28 @@ namespace Chess_ConsoleApp
         static void Main(string[] args)
         {
 
-            CoordenadasXadrez cx = new CoordenadasXadrez('a', 1);
-            Console.WriteLine(cx);
+            //CoordenadasXadrez cx = new CoordenadasXadrez('a', 1);
+            //Console.WriteLine(cx);
 
-            Console.WriteLine(cx.ToPosicao());
+            //Console.WriteLine(cx.ToPosicao());
             
-            
-            
-            
-            //try
-            //{
-            //    Tabuleiro tab = new Tabuleiro(8, 8);
 
-            //    tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
-            //    tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
-            //    tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 4));
+            try
+            {
+                Tabuleiro tab = new Tabuleiro(8, 8);
 
-            //    Tela.Imprimirtabuleiro(tab);
-            //}
-            //catch(TabuleiroException e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
+                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(0, 0));
+                tab.ColocarPeca(new Torre(tab, Cor.Preta), new Posicao(1, 3));
+                tab.ColocarPeca(new Rei(tab, Cor.Preta), new Posicao(2, 4));
+
+                tab.ColocarPeca(new Torre(tab, Cor.Branca), new Posicao(3, 5));
+
+                Tela.Imprimirtabuleiro(tab);
+            }
+            catch (TabuleiroException e)
+            {
+                Console.WriteLine(e.Message);
+            }
             Console.ReadKey();
         }
     }
