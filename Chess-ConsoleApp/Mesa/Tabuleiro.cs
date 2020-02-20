@@ -21,5 +21,10 @@ namespace Chess_ConsoleApp.Mesa
         {
             return Pecas[linha, coluna];
         }
+        public void ColocarPeca(Peca p,Posicao pos)
+        {
+            Pecas[pos.Linhas, pos.Colunas] = p;
+            p.Posicao = pos;
+        }
     }
 }

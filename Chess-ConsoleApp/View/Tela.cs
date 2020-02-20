@@ -15,9 +15,12 @@ namespace Chess_ConsoleApp.View
                 {
                     if (tabuleiro.Peca(i, j) == null)
                     {
-                        Console.Write("# ");
+                        Console.Write("- ");
                     }
-                    Console.Write(tabuleiro.Peca(i, j) + " ");
+                    else
+                    {
+                        Console.Write(tabuleiro.Peca(i, j) + " ");
+                    }
                 }
                 Console.WriteLine();
             }
