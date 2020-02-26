@@ -43,6 +43,18 @@ namespace Chess_ConsoleApp.Mesa
             p.Posicao = pos;
         }
 
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+            aux.Posicao = null;
+            Pecas[pos.Linhas, pos.Colunas] = null;
+            return aux;
+        }
+
         public bool PosicaoValida(Posicao posicao)
         {
             if(posicao.Linhas <0 || posicao.Linhas >= Linhas || posicao.Colunas<0 || posicao.Colunas >= Colunas)

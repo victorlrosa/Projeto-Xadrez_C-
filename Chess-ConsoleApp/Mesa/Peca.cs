@@ -16,5 +16,10 @@ namespace Chess_ConsoleApp.Mesa
             QtdMovimentos = 0;
             Tabuleiro = tabuleiro;
         }
+
+        public void IncrementarQtdMovimentos()
+        {
+            QtdMovimentos++;
+        }
     }
 }

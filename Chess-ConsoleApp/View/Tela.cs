@@ -1,5 +1,6 @@
 ﻿using Chess_ConsoleApp.Mesa;
 using Chess_ConsoleApp.Mesa.Enum;
+using Chess_ConsoleApp.Xadrez;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -29,6 +30,15 @@ namespace Chess_ConsoleApp.View
             }
             Console.WriteLine("   a b c d e f g h");
             
+        }
+
+        public static CoordenadasXadrez LerPosicaoXadrez()
+        {
+            string s = Console.ReadLine();
+            char coluna = s[0];
+            int linha = int.Parse(s[1] + "");
+            return new CoordenadasXadrez(coluna, linha);
+
         }
 
         public static void ImprimirPeca(Peca peca)
