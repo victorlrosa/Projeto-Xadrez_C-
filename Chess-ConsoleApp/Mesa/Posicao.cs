@@ -15,6 +15,11 @@ namespace Chess_ConsoleApp.Mesa
             Colunas = colunas;
         }
 
+        public void DefinirValores(int linha, int coluna)
+        {
+            Linhas = linha;
+            Colunas = coluna;
+        }
         public override string ToString()
         {
             return Linhas + ", " + Colunas;

@@ -2,7 +2,7 @@
 
 namespace Chess_ConsoleApp.Mesa
 {
-    class Peca
+     abstract class Peca
     {
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
@@ -16,6 +16,9 @@ namespace Chess_ConsoleApp.Mesa
             QtdMovimentos = 0;
             Tabuleiro = tabuleiro;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
+        
 
         public void IncrementarQtdMovimentos()
         {
