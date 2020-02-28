@@ -45,6 +45,8 @@ namespace Chess_ConsoleApp
                         Console.ReadKey();
                     }
                 }
+                Console.Clear();
+                Tela.ImprimirPartida(partida);
                 
             }
             catch (TabuleiroException e)
