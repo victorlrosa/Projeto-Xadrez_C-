@@ -45,5 +45,10 @@ namespace Chess_ConsoleApp.Mesa
         {
             QtdMovimentos++;
         }
+
+        public void DecrementarQtdMovimentos()
+        {
+            QtdMovimentos--;
+        }
     }
 }
