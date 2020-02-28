@@ -21,10 +21,7 @@ namespace Chess_ConsoleApp
                     try
                     {
                         Console.Clear();
-                        Tela.Imprimirtabuleiro(partida.Tabuleiro);
-                        Console.WriteLine();
-                        Console.WriteLine("Turno " + partida.Turno);
-                        Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+                        Tela.ImprimirPartida(partida);
 
                         Console.WriteLine();
                         Console.Write("Origem: ");
