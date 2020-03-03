@@ -5,9 +5,10 @@ namespace Chess_ConsoleApp.Xadrez
 {
     class Rei : Peca
     {
-        public Rei(Tabuleiro tab, Cor cor) : base(cor, tab)
+        private PartidaXadrez partida;
+        public Rei(Tabuleiro tab, Cor cor, PartidaXadrez partida) : base(cor, tab)
         {
-
+            this.partida = partida;
         }
         private bool PodeMover(Posicao pos)
         {
@@ -69,7 +70,46 @@ namespace Chess_ConsoleApp.Xadrez
             {
                 mat[pos.Linhas, pos.Colunas] = true;
             }
+
+            //#JogadaEspecial Roque Pequeno
+            if (QtdMovimentos == 0 && !partida.Xeque)
+            {
+                Posicao posT1 = new Posicao(Posicao.Linhas, Posicao.Colunas + 3);
+                if (TesteTorreParaRoque(posT1))
+                {
+                    Posicao p1 = new Posicao(Posicao.Linhas, Posicao.Colunas + 1);
+                    Posicao p2 = new Posicao(Posicao.Linhas, Posicao.Colunas + 2);
+                    if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null)
+                    {
+                        mat[Posicao.Linhas, Posicao.Colunas + 2] = true;
+                    }
+                }
+            }
+
+            //#JogadaEspecial Roque Grande
+            if (QtdMovimentos == 0 && !partida.Xeque)
+            {
+                Posicao posT2 = new Posicao(Posicao.Linhas, Posicao.Colunas - 4);
+                if (TesteTorreParaRoque(posT2))
+                {
+                    Posicao p1 = new Posicao(Posicao.Linhas, Posicao.Colunas - 1);
+                    Posicao p2 = new Posicao(Posicao.Linhas, Posicao.Colunas - 2);
+                    Posicao p3 = new Posicao(Posicao.Linhas, Posicao.Colunas - 3);
+
+                    if (Tabuleiro.Peca(p1) == null && Tabuleiro.Peca(p2) == null && Tabuleiro.Peca(p3) == null)
+                    {
+                        mat[Posicao.Linhas, Posicao.Colunas - 2] = true;
+                    }
+                }
+            }
+
             return mat;
+        }
+
+        private bool TesteTorreParaRoque(Posicao pos)
+        {
+            Peca p = Tabuleiro.Peca(pos);
+            return p != null && p is Torre && p.Cor == Cor && p.QtdMovimentos == 0;
         }
 
         public override string ToString()
