@@ -44,6 +44,16 @@ namespace Chess_ConsoleApp
                         Console.WriteLine(e.Message);
                         Console.ReadKey();
                     }
+                    catch(FormatException e)
+                    {
+                        Console.WriteLine("Formato inválido das coordenadas!");
+                        Console.ReadKey();
+                    }
+                    catch(IndexOutOfRangeException e)
+                    {
+                        Console.WriteLine("Digite as coodernadas dentro do padrão! Ex:(a1)");
+                        Console.ReadKey();
+                    }
                 }
                 Console.Clear();
                 Tela.ImprimirPartida(partida);
